@@ -1,0 +1,60 @@
+Run "RUNMEFIRST.bat" <-- Do not close.
+
+Run "step1.bat" <-- Wait until you can type something again.
+
+Type "chmod 0777 /storage/emulated/0/*"
+Open Terminal Emulator, Type "id"
+Look for something containing "untrusted_app". If not found, Start all over again. If found, continue.
+Type "applypatch /system/bin/atd /storage/emulated/0/dirtysanta" into Terminal Emulator
+Wait for RUNMEFIRST.bat console to prompt you to run step2.bat.
+Run "step2.bat"
+Save copies (put them somewhere safe where you'll remember them) of the files "abootbackup.img" and "bootbackup.img", which "step2.bat" saves in its directory, the latter is crucial in returning to stock.
+At a command prompt run the following commands, but make sure to wait at least 30 seconds between each. Do not skimp on that delay as otherwise the likelihood is this will fail (this is the most unreliable step in this process); waiting longer than 30 seconds is fine.
+Code:
+fastboot flash recovery twrp-3.0.2-1-h990.img
+
+fastboot flash recovery twrp-3.0.2-1-h990.img
+
+fastboot reboot
+Of all steps this is by far the most unreliable! If you have problems at the end, most likely you'll need to get back to the bootloader (hold power-UP and then insert USB cable) and repeat this step.
+Boot in to TWRP.
+Press and hold volume DOWN; press and hold power until the LG logo comes up, then briefly release power (0.5-1.0sec) and then hold power again. If you fail to get this right the first time, you will likely need to pull the battery out and start from power off.
+You will then be prompted "Delete all user data (including LG and carrier apps) and reset all settings?"
+Select "Yes" twice, and as long as TWRP installation was successful you'll get into TWRP and NO RESET will be done.
+Inside TWRP flash "h990-kernel.zip" and then flash SU implementation (Magisk.zip or
+SuperSU.zip). At this point the process should be complete. There won't be static on boot, you'll have root and nothing else should have changed.
+
+If your phone's userdata got locked, there may be a need to wipe cache and data to regain access.
+
+During all subsequent boots a red triangle with a warning about your device being corrupt will show up. The only method to remove that would be to get my kernel signed by LGE and I'm rather doubtful that will ever happen. Only thing we can do is to call it a badge of honor.
+
+There is now a tool for writing KDZ files to phones. This is recommended in order to get up to date on security patches.
+
+
+
+Going back to stock:
+As with those whole rooting procedure, this is hazardous. Be careful, go slow and don't rush things.
+
+Method 1a: (TWRP, strongly preferred!)
+Boot into TWRP (DOWN + Power with a brief release during LG logo).
+Copy the file "abootbackup.img" from your archive to your phone (adb push abootbackup.img /). This is the file you should have saved from step 15 above.
+Run `adb shell` and type (or copy&paste) the following commands:
+Code:
+dd if=abootbackup.img of=/dev/block/bootdevice/by-name/aboot
+sync
+sleep 30
+sync
+Get into Download mode. Power off phone from TWRP. Press and hold UP, then power phone on (no need to hold power).
+Load the appropriate KDZ file onto your phone via LGUP.
+
+Method 1b: (TWRP, with file from another source)
+This is simply a tweak of the above resulting from recalling there is a backup of aboot already on the phone itself.
+Boot into TWRP (DOWN + Power with a brief release during LG logo).
+Run `adb shell` and type (or copy&paste) the following commands:
+Code:
+dd if=/dev/block/bootdevice/by-name/abootback of=/dev/block/bootdevice/by-name/aboot
+sync
+sleep 30
+sync
+Get into Download mode. Power off phone from TWRP. Press and hold UP, then power phone on (no need to hold power).
+Load the appropriate KDZ file onto your phone via LGUP.
