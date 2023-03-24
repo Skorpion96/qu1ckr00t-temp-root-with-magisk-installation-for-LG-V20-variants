@@ -10,7 +10,7 @@ the code of the pc part is from dirtysanta exploit for LG V20, i just tried to r
 
 remember i only edited other people code, i own nothing, i just wanted to make life of others easier, i hope you will apprecciate
 
-I don't have an LG V20 so i can't try if the stuff works, i personally believe the qu1ckr00t edited app works, i don't know about mtk easy su one, same for the pc part of the exploit, but at least people can have a temp root
+I don't have an LG V20 so i can't try if the stuff works, i personally believe the qu1ckr00t edited app works, i don't know about mtk easy su one, but at least people can have a temp root
 
 Dont forget to extract tar.xz as i compressed because github limit is 25 MB
 
