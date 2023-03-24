@@ -13,3 +13,5 @@ remember i only edited other people code, i own nothing, i just wanted to make l
 I don't have an LG V20 so i can't try if the stuff works, i personally believe the qu1ckr00t edited app works, i don't know about mtk easy su one, same for the pc part of the exploit, but at least people can have a temp root
 
 Dont forget to extract tar.xz as i compressed because github limit is 25 MB
+
+One last thing, the bootloader needed to run the dirtysanta exploit is the one from old lg v20 roms so probably the "pc" version of this repo would not work probably, although qu1ckr00t could as it is a temp root. 
