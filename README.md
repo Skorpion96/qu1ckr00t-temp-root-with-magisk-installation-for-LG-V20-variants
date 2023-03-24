@@ -14,4 +14,4 @@ I don't have an LG V20 so i can't try if the stuff works, i personally believe t
 
 Dont forget to extract tar.xz as i compressed because github limit is 25 MB
 
-One last thing, the bootloader needed to run the dirtysanta exploit is the one from old lg v20 roms so probably the "pc" version of this repo would not work probably, although qu1ckr00t could as it is a temp root. 
+One last thing, the bootloader needed to run the dirtysanta exploit is the one from old lg v20 roms so the "pc" version of this repo would not work probably, although qu1ckr00t could as it is a temp root. 
